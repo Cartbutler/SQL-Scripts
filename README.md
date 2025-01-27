@@ -12,12 +12,69 @@ This repository contains SQL scripts for setting up and populating the CartButle
 
 The structure of the database tables is provided in the Excel file [Database Tables.xlsx](./Database%20Tables.xlsx). The file includes the following sheets:
 
-- **Products**: Columns for product_id, product_name, description, price, stock, category, created_at.
-- **Customers**: Columns for customers_id, first_name, last_name, email, phone_number, address, premium_rank, date_joined.
-- **Grocery Stores**: Columns for store_id, store_name, address, rank, date_joined.
-- **Employees**: Columns for e_id, name, f_name, l_name, email, phone.
-- **DB Users**: Columns for user_id, username, password.
-- **Orders**: Columns for order_id, customer_id, order_status, order_day, payment_method.
+### Products Table
+
+| Column Name   | Data Type         | Description                     |
+|---------------|-------------------|---------------------------------|
+| product_id    | INT AUTO_INCREMENT| Primary key                     |
+| product_name  | VARCHAR(255)      | Name of the product             |
+| description   | TEXT              | Description of the product      |
+| price         | DECIMAL(10, 2)    | Price of the product            |
+| stock         | INT               | Stock quantity                  |
+| category      | VARCHAR(255)      | Category of the product         |
+| created_at    | TIMESTAMP         | Timestamp of creation           |
+
+### Customers Table
+
+| Column Name   | Data Type         | Description                     |
+|---------------|-------------------|---------------------------------|
+| customers_id  | INT AUTO_INCREMENT| Primary key                     |
+| first_name    | VARCHAR(255)      | First name of the customer      |
+| last_name     | VARCHAR(255)      | Last name of the customer       |
+| email         | VARCHAR(255)      | Email of the customer           |
+| phone_number  | VARCHAR(20)       | Phone number of the customer    |
+| address       | TEXT              | Address of the customer         |
+| premium_rank  | INT               | Premium rank of the customer    |
+| date_joined   | TIMESTAMP         | Timestamp of joining            |
+
+### Grocery Stores Table
+
+| Column Name   | Data Type         | Description                     |
+|---------------|-------------------|---------------------------------|
+| store_id      | INT AUTO_INCREMENT| Primary key                     |
+| store_name    | VARCHAR(255)      | Name of the store               |
+| address       | TEXT              | Address of the store            |
+| rank          | INT               | Rank of the store               |
+| date_joined   | TIMESTAMP         | Timestamp of joining            |
+
+### Employees Table
+
+| Column Name   | Data Type         | Description                     |
+|---------------|-------------------|---------------------------------|
+| e_id          | INT AUTO_INCREMENT| Primary key                     |
+| name          | VARCHAR(255)      | Name of the employee            |
+| f_name        | VARCHAR(255)      | First name of the employee      |
+| l_name        | VARCHAR(255)      | Last name of the employee       |
+| email         | VARCHAR(255)      | Email of the employee           |
+| phone         | VARCHAR(20)       | Phone number of the employee    |
+
+### DB Users Table
+
+| Column Name   | Data Type         | Description                     |
+|---------------|-------------------|---------------------------------|
+| user_id       | INT AUTO_INCREMENT| Primary key                     |
+| username      | VARCHAR(255)      | Username of the database user   |
+| password      | VARCHAR(255)      | Password of the database user   |
+
+### Orders Table
+
+| Column Name   | Data Type         | Description                     |
+|---------------|-------------------|---------------------------------|
+| order_id      | INT AUTO_INCREMENT| Primary key                     |
+| customer_id   | INT               | Foreign key referencing customers_id |
+| order_status  | VARCHAR(255)      | Status of the order             |
+| order_day     | DATE              | Date of the order               |
+| payment_method| VARCHAR(255)      | Payment method used             |
 
 ## Sample Data Scripts
 
