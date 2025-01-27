@@ -8,23 +8,18 @@ INSERT INTO categories (category_name) VALUES
 ('Vegetables'),
 ('Pantry');
 
--- Insert sample data into products table
-INSERT INTO products (product_name, description, price, stock, category) VALUES
-('Apple', 'Fresh red apples', 0.50, 100, 'Fruits'),
-('Banana', 'Ripe yellow bananas', 0.30, 150, 'Fruits'),
-('Milk', '1 liter of milk', 1.20, 50, 'Dairy'),
-('Bread', 'Whole grain bread', 2.50, 80, 'Bakery'),
-('Eggs', 'Dozen large eggs', 2.00, 60, 'Dairy'),
-('Chicken Breast', 'Boneless skinless chicken breast', 5.00, 40, 'Meat'),
-('Orange Juice', '1 liter of orange juice', 3.00, 30, 'Beverages'),
-('Carrots', 'Fresh carrots', 1.00, 100, 'Vegetables'),
-('Tomatoes', 'Fresh tomatoes', 1.50, 90, 'Vegetables'),
-('Cheese', 'Cheddar cheese block', 4.00, 50, 'Dairy'),
-('Yogurt', 'Greek yogurt', 1.00, 70, 'Dairy'),
-('Pasta', '1 kg of pasta', 2.00, 120, 'Pantry'),
-('Rice', '1 kg of rice', 1.50, 110, 'Pantry'),
-('Cereal', 'Box of cereal', 3.00, 80, 'Pantry'),
-('Butter', '200g of butter', 2.50, 60, 'Dairy');
+-- Insert sample data into products table with image paths
+INSERT INTO products (product_name, description, price, stock, category_id, image_path) VALUES
+('Apple', 'Fresh red apples', 0.50, 100, 1, 'https://example.com/images/products/apple.jpg'),
+('Banana', 'Ripe yellow bananas', 0.30, 150, 1, 'https://example.com/images/products/banana.jpg'),
+('Milk', '1 liter of milk', 1.20, 50, 2, 'https://example.com/images/products/milk.jpg'),
+('Bread', 'Whole grain bread', 2.50, 80, 3, 'https://example.com/images/products/bread.jpg'),
+('Eggs', 'Dozen large eggs', 2.00, 60, 2, 'https://example.com/images/products/eggs.jpg'),
+('Chicken Breast', 'Boneless skinless chicken breast', 5.00, 40, 4, 'https://example.com/images/products/chicken_breast.jpg'),
+('Orange Juice', '1 liter of orange juice', 3.00, 30, 5, 'https://example.com/images/products/orange_juice.jpg'),
+('Carrots', 'Fresh carrots', 1.00, 100, 6, 'https://example.com/images/products/carrots.jpg'),
+('Tomatoes', 'Fresh tomatoes', 1.50, 90, 6, 'https://example.com/images/products/tomatoes.jpg'),
+('Cheese', 'Cheddar cheese block', 4.00, 50, 2, 'https://example.com/images/products/cheese.jpg');
 
 -- Insert sample data into customers table
 INSERT INTO customers (first_name, last_name, email, phone_number, address, premium_rank) VALUES
