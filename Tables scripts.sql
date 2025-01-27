@@ -2,6 +2,12 @@
 CREATE DATABASE IF NOT EXISTS cartbutler;
 USE cartbutler;
 
+-- Create the categories table
+CREATE TABLE categories (
+    category_id INT AUTO_INCREMENT PRIMARY KEY,
+    category_name VARCHAR(255) NOT NULL UNIQUE
+);
+
 -- Create the products table
 CREATE TABLE products (
     product_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -9,8 +15,9 @@ CREATE TABLE products (
     description TEXT,
     price DECIMAL(10, 2) NOT NULL,
     stock INT NOT NULL,
-    category VARCHAR(255),
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    category_id INT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (category_id) REFERENCES categories(category_id)
 );
 
 -- Create the customers table
