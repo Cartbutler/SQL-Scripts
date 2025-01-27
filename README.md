@@ -26,6 +26,7 @@ This repository contains SQL scripts for setting up and populating the CartButle
 | price         | DECIMAL(10, 2)    | Price of the product            |
 | stock         | INT               | Stock quantity                  |
 | category_id   | INT               | Foreign key referencing category_id |
+| image_path    | VARCHAR(255)      | Path to the product image       |
 | created_at    | TIMESTAMP         | Timestamp of creation           |
 
 ### Customers Table
