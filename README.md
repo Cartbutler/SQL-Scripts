@@ -9,6 +9,13 @@ This repository contains SQL scripts for setting up and populating the CartButle
 
 ## Table Structure
 
+### Categories Table
+
+| Column Name   | Data Type         | Description                     |
+|---------------|-------------------|---------------------------------|
+| category_id   | INT AUTO_INCREMENT| Primary key                     |
+| category_name | VARCHAR(255)      | Name of the category            |
+
 ### Products Table
 
 | Column Name   | Data Type         | Description                     |
@@ -18,7 +25,7 @@ This repository contains SQL scripts for setting up and populating the CartButle
 | description   | TEXT              | Description of the product      |
 | price         | DECIMAL(10, 2)    | Price of the product            |
 | stock         | INT               | Stock quantity                  |
-| category      | VARCHAR(255)      | Category of the product         |
+| category_id   | INT               | Foreign key referencing category_id |
 | created_at    | TIMESTAMP         | Timestamp of creation           |
 
 ### Customers Table
