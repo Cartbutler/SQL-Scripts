@@ -1,3 +1,13 @@
+-- Populate the categories table
+INSERT INTO categories (category_name) VALUES
+('Fruits'),
+('Dairy'),
+('Bakery'),
+('Meat'),
+('Beverages'),
+('Vegetables'),
+('Pantry');
+
 -- Insert sample data into products table
 INSERT INTO products (product_name, description, price, stock, category) VALUES
 ('Apple', 'Fresh red apples', 0.50, 100, 'Fruits'),
