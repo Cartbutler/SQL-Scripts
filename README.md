@@ -6,11 +6,8 @@ This repository contains SQL scripts for setting up and populating the CartButle
 
 - Tables scripts.sql: Contains SQL scripts to create the database and its tables.
 - Sample data.txt: Contains SQL scripts to insert sample data into the tables.
-- [Database Tables.xlsx](./Database%20Tables.xlsx): Contains the structure of the database tables in Excel format.
 
 ## Table Structure
-
-The structure of the database tables is provided in the Excel file [Database Tables.xlsx](./Database%20Tables.xlsx). The file includes the following sheets:
 
 ### Products Table
 
