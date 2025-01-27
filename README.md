@@ -82,6 +82,20 @@ This repository contains SQL scripts for setting up and populating the CartButle
 
 ## Sample Data Scripts
 
+### Categories table
+
+```sql
+-- Populate the categories table
+INSERT INTO categories (category_name) VALUES
+('Fruits'),
+('Dairy'),
+('Bakery'),
+('Meat'),
+('Beverages'),
+('Vegetables'),
+('Pantry');
+```
+
 ### Products Table
 
 ```sql
