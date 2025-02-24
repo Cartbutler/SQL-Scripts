@@ -2,69 +2,93 @@
 CREATE DATABASE IF NOT EXISTS cartbutler;
 USE cartbutler;
 
--- Create the categories table
 CREATE TABLE categories (
     category_id INT AUTO_INCREMENT PRIMARY KEY,
-    category_name VARCHAR(255) NOT NULL UNIQUE
+    category_name VARCHAR(255) UNIQUE NOT NULL,
+    image_path VARCHAR(255)
 );
 
--- Create the products table
 CREATE TABLE products (
     product_id INT AUTO_INCREMENT PRIMARY KEY,
     product_name VARCHAR(255) NOT NULL,
-    description TEXT,
-    price DECIMAL(10, 2) NOT NULL,
+    description TEXT NOT NULL,
+    price FLOAT NOT NULL,
     stock INT NOT NULL,
-    category_id INT,
-    image_path VARCHAR(255),
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    category_id INT NOT NULL,
+    image_path VARCHAR(255) NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    category_name VARCHAR(255),
     FOREIGN KEY (category_id) REFERENCES categories(category_id)
 );
 
--- Create the customers table
+CREATE INDEX products_category_id_fkey ON products(category_id);
+
 CREATE TABLE customers (
     customers_id INT AUTO_INCREMENT PRIMARY KEY,
     first_name VARCHAR(255) NOT NULL,
     last_name VARCHAR(255) NOT NULL,
-    email VARCHAR(255) NOT NULL UNIQUE,
-    phone_number VARCHAR(20),
-    address TEXT,
-    premium_rank INT,
-    date_joined TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    email VARCHAR(255) UNIQUE NOT NULL,
+    phone_number VARCHAR(255) NOT NULL,
+    address TEXT NOT NULL,
+    premium_rank INT NOT NULL,
+    date_joined DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
--- Create the grocery_stores table
 CREATE TABLE grocery_stores (
     store_id INT AUTO_INCREMENT PRIMARY KEY,
     store_name VARCHAR(255) NOT NULL,
     address TEXT NOT NULL,
-    `rank` INT,
-    date_joined TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    rank INT NOT NULL,
+    date_joined DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
--- Create the employees table
 CREATE TABLE employees (
     e_id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     f_name VARCHAR(255) NOT NULL,
     l_name VARCHAR(255) NOT NULL,
-    email VARCHAR(255) NOT NULL UNIQUE,
-    phone VARCHAR(20)
+    email VARCHAR(255) UNIQUE NOT NULL,
+    phone VARCHAR(255) NOT NULL
 );
 
--- Create the db_users table
 CREATE TABLE db_users (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(255) NOT NULL UNIQUE,
+    username VARCHAR(255) UNIQUE NOT NULL,
     password VARCHAR(255) NOT NULL
 );
 
--- Create the orders table
 CREATE TABLE orders (
     order_id INT AUTO_INCREMENT PRIMARY KEY,
-    customer_id INT,
-    order_status VARCHAR(255),
-    order_day DATE,
-    payment_method VARCHAR(255),
+    customer_id INT NOT NULL,
+    order_status VARCHAR(255) NOT NULL,
+    order_day DATETIME NOT NULL,
+    payment_method VARCHAR(255) NOT NULL,
     FOREIGN KEY (customer_id) REFERENCES customers(customers_id)
 );
+
+CREATE INDEX orders_customer_id_fkey ON orders(customer_id);
+
+CREATE TABLE pSuggestions (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    priority INT NOT NULL
+);
+
+CREATE TABLE stores (
+    store_id INT AUTO_INCREMENT PRIMARY KEY,
+    store_name VARCHAR(255) NOT NULL,
+    store_location VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE product_store (
+    product_store_id INT AUTO_INCREMENT PRIMARY KEY,
+    product_id INT NOT NULL,
+    store_id INT NOT NULL,
+    price DECIMAL(10, 2) NOT NULL,
+    stock INT NOT NULL,
+    FOREIGN KEY (product_id) REFERENCES products(product_id),
+    FOREIGN KEY (store_id) REFERENCES stores(store_id)
+);
+
+CREATE INDEX product_id ON product_store(product_id);
+CREATE INDEX store_id ON product_store(store_id);
