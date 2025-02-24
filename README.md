@@ -4,8 +4,8 @@ This repository contains SQL scripts for setting up and populating the CartButle
 
 ## Files
 
-- Tables scripts.sql: Contains SQL scripts to create the database and its tables.
-- Sample data.txt: Contains SQL scripts to insert sample data into the tables.
+- `tables_scripts.sql`: Contains SQL scripts to create the database and its tables.
+- `sample_data.sql`: Contains SQL scripts to insert sample data into the tables.
 
 ## Table Structure
 
@@ -15,6 +15,7 @@ This repository contains SQL scripts for setting up and populating the CartButle
 |---------------|-------------------|---------------------------------|
 | category_id   | INT AUTO_INCREMENT| Primary key                     |
 | category_name | VARCHAR(255)      | Name of the category            |
+| image_path    | VARCHAR(255)      | Path to the category image      |
 
 ### Products Table
 
@@ -23,11 +24,12 @@ This repository contains SQL scripts for setting up and populating the CartButle
 | product_id    | INT AUTO_INCREMENT| Primary key                     |
 | product_name  | VARCHAR(255)      | Name of the product             |
 | description   | TEXT              | Description of the product      |
-| price         | DECIMAL(10, 2)    | Price of the product            |
+| price         | FLOAT             | Price of the product            |
 | stock         | INT               | Stock quantity                  |
 | category_id   | INT               | Foreign key referencing category_id |
 | image_path    | VARCHAR(255)      | Path to the product image       |
-| created_at    | TIMESTAMP         | Timestamp of creation           |
+| created_at    | DATETIME          | Timestamp of creation           |
+| category_name | VARCHAR(255)      | Name of the category            |
 
 ### Customers Table
 
@@ -37,10 +39,10 @@ This repository contains SQL scripts for setting up and populating the CartButle
 | first_name    | VARCHAR(255)      | First name of the customer      |
 | last_name     | VARCHAR(255)      | Last name of the customer       |
 | email         | VARCHAR(255)      | Email of the customer           |
-| phone_number  | VARCHAR(20)       | Phone number of the customer    |
+| phone_number  | VARCHAR(255)      | Phone number of the customer    |
 | address       | TEXT              | Address of the customer         |
 | premium_rank  | INT               | Premium rank of the customer    |
-| date_joined   | TIMESTAMP         | Timestamp of joining            |
+| date_joined   | DATETIME          | Timestamp of joining            |
 
 ### Grocery Stores Table
 
@@ -50,7 +52,7 @@ This repository contains SQL scripts for setting up and populating the CartButle
 | store_name    | VARCHAR(255)      | Name of the store               |
 | address       | TEXT              | Address of the store            |
 | rank          | INT               | Rank of the store               |
-| date_joined   | TIMESTAMP         | Timestamp of joining            |
+| date_joined   | DATETIME          | Timestamp of joining            |
 
 ### Employees Table
 
@@ -61,7 +63,7 @@ This repository contains SQL scripts for setting up and populating the CartButle
 | f_name        | VARCHAR(255)      | First name of the employee      |
 | l_name        | VARCHAR(255)      | Last name of the employee       |
 | email         | VARCHAR(255)      | Email of the employee           |
-| phone         | VARCHAR(20)       | Phone number of the employee    |
+| phone         | VARCHAR(255)      | Phone number of the employee    |
 
 ### DB Users Table
 
@@ -78,8 +80,57 @@ This repository contains SQL scripts for setting up and populating the CartButle
 | order_id      | INT AUTO_INCREMENT| Primary key                     |
 | customer_id   | INT               | Foreign key referencing customers_id |
 | order_status  | VARCHAR(255)      | Status of the order             |
-| order_day     | DATE              | Date of the order               |
+| order_day     | DATETIME          | Date of the order               |
 | payment_method| VARCHAR(255)      | Payment method used             |
+
+### Product Suggestions Table
+
+| Column Name   | Data Type         | Description                     |
+|---------------|-------------------|---------------------------------|
+| id            | INT AUTO_INCREMENT| Primary key                     |
+| name          | VARCHAR(255)      | Name of the suggestion          |
+| priority      | INT               | Priority of the suggestion      |
+
+### Stores Table
+
+| Column Name   | Data Type         | Description                     |
+|---------------|-------------------|---------------------------------|
+| store_id      | INT AUTO_INCREMENT| Primary key                     |
+| store_name    | VARCHAR(255)      | Name of the store               |
+| store_location| VARCHAR(255)      | Location of the store           |
+
+### Product Store Table
+
+| Column Name   | Data Type         | Description                     |
+|---------------|-------------------|---------------------------------|
+| product_store_id | INT AUTO_INCREMENT | Primary key                 |
+| product_id    | INT               | Foreign key referencing product_id |
+| store_id      | INT               | Foreign key referencing store_id |
+| price         | DECIMAL(10, 2)    | Price of the product in the store |
+| stock         | INT               | Stock quantity in the store     |
+
+### Users Table
+
+| Column Name   | Data Type         | Description                     |
+|---------------|-------------------|---------------------------------|
+| user_id       | INT AUTO_INCREMENT| Primary key                     |
+
+### Cart Table
+
+| Column Name   | Data Type         | Description                     |
+|---------------|-------------------|---------------------------------|
+| cart_id       | INT AUTO_INCREMENT| Primary key                     |
+| user_id       | INT               | Foreign key referencing user_id |
+| created_at    | TIMESTAMP         | Timestamp of creation           |
+
+### Cart Items Table
+
+| Column Name   | Data Type         | Description                     |
+|---------------|-------------------|---------------------------------|
+| cart_item_id  | INT AUTO_INCREMENT| Primary key                     |
+| cart_id       | INT               | Foreign key referencing cart_id |
+| product_id    | INT               | Foreign key referencing product_id |
+| quantity      | INT               | Quantity of the product         |
 
 ## Sample Data Scripts
 
