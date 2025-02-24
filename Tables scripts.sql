@@ -1,6 +1,6 @@
 -- Create the database if it does not exist
-CREATE DATABASE IF NOT EXISTS cartbutler;
-USE cartbutler;
+CREATE DATABASE IF NOT EXISTS testr;
+USE testr;
 
 CREATE TABLE categories (
     category_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -38,7 +38,7 @@ CREATE TABLE grocery_stores (
     store_id INT AUTO_INCREMENT PRIMARY KEY,
     store_name VARCHAR(255) NOT NULL,
     address TEXT NOT NULL,
-    rank INT NOT NULL,
+    store_rank INT NOT NULL,
     date_joined DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -92,3 +92,26 @@ CREATE TABLE product_store (
 
 CREATE INDEX product_id ON product_store(product_id);
 CREATE INDEX store_id ON product_store(store_id);
+
+-- Create the users table
+CREATE TABLE users(
+user_id INT AUTO_INCREMENT PRIMARY KEY
+);
+
+-- Create the Cart table
+CREATE TABLE cart (
+    cart_id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(user_id) -- Assuming you have a Users table
+);
+
+-- Create the CartItems table
+CREATE TABLE cartItems (
+    cart_item_id INT AUTO_INCREMENT PRIMARY KEY,
+    cart_id INT NOT NULL,
+    product_id INT NOT NULL,
+    quantity INT NOT NULL,
+    FOREIGN KEY (cart_id) REFERENCES cart(cart_id),
+    FOREIGN KEY (product_id) REFERENCES products(product_id) -- Assuming you have a Products table
+);
