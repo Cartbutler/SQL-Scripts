@@ -27,7 +27,7 @@ INSERT INTO customers (first_name, last_name, email, phone_number, address, prem
 ('Jane', 'Smith', 'jane.smith@example.com', '0987654321', '456 Elm St', 1);
 
 -- Insert sample data into grocery_stores table
-INSERT INTO grocery_stores (store_name, address, `rank`) VALUES
+INSERT INTO grocery_stores (store_name, address, store_rank) VALUES
 ('SuperMart', '789 Oak St', 0),
 ('FreshMart', '321 Pine St', 1);
 
