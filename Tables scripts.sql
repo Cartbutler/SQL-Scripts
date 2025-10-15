@@ -136,11 +136,22 @@ SELECT
             'price', ps.price,
             'quantity', ci.quantity
         )
-    ) as products
+    ) as products,
+    COUNT(DISTINCT p.product_id) as product_count,
+    (SELECT COUNT(DISTINCT product_id) FROM cart_items WHERE cart_id = c.id) as total_cart_products,
+    -- Use boolean type
+    COUNT(DISTINCT p.product_id) = (SELECT COUNT(DISTINCT product_id) FROM cart_items WHERE cart_id = c.id) as is_complete
 FROM cart c
 INNER JOIN cart_items ci ON c.id = ci.cart_id
 INNER JOIN products p ON ci.product_id = p.product_id
 INNER JOIN product_store ps ON p.product_id = ps.product_id
 INNER JOIN stores s ON ps.store_id = s.store_id
 GROUP BY c.id, c.user_id, s.store_id, s.store_name, s.store_location, 
-         s.store_address, s.latitude, s.longitude, s.store_image;
+         s.store_address, s.latitude, s.longitude, s.store_image
+ORDER BY 
+    -- First sort by completeness (complete stores first)
+    is_complete DESC,
+    -- Then sort by product count (more products first)
+    product_count DESC,
+    -- Finally sort by total price (lower price first)
+    total ASC;
