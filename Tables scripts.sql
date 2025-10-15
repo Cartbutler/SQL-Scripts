@@ -115,3 +115,32 @@ CREATE TABLE cartItems (
     FOREIGN KEY (cart_id) REFERENCES cart(cart_id),
     FOREIGN KEY (product_id) REFERENCES products(product_id) -- Assuming you have a Products table
 );
+
+-- Create the CartStoreComplete view
+CREATE VIEW cart_store_complete AS
+SELECT 
+    c.id as cart_id,
+    c.user_id,
+    s.store_id,
+    s.store_name,
+    s.store_location,
+    s.store_address,
+    s.latitude,
+    s.longitude,
+    s.store_image,
+    SUM(ps.price * ci.quantity) as total,
+    JSON_ARRAYAGG(
+        JSON_OBJECT(
+            'product_id', p.product_id,
+            'product_name', p.product_name,
+            'price', ps.price,
+            'quantity', ci.quantity
+        )
+    ) as products
+FROM cart c
+INNER JOIN cart_items ci ON c.id = ci.cart_id
+INNER JOIN products p ON ci.product_id = p.product_id
+INNER JOIN product_store ps ON p.product_id = ps.product_id
+INNER JOIN stores s ON ps.store_id = s.store_id
+GROUP BY c.id, c.user_id, s.store_id, s.store_name, s.store_location, 
+         s.store_address, s.latitude, s.longitude, s.store_image;

@@ -1,0 +1,393 @@
+-- Populate the categories table
+INSERT INTO testr.categories (category_name, image_path) VALUES
+('Fresh Produce', 'https://images.pexels.com/photos/2255935/pexels-photo-2255935.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'),
+('Dairy & Eggs', 'https://images.pexels.com/photos/248412/pexels-photo-248412.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'),
+('Meat & Seafood', 'https://images.pexels.com/photos/65175/pexels-photo-65175.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'),
+('Bakery & Bread', 'https://images.pexels.com/photos/1775043/pexels-photo-1775043.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'),
+('Pantry Staples', 'https://images.pexels.com/photos/3737644/pexels-photo-3737644.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'),
+('Snacks', 'https://images.pexels.com/photos/1582482/pexels-photo-1582482.jpeg??auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'),
+('Beverages', 'https://images.pexels.com/photos/3230214/pexels-photo-3230214.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'),
+('Frozen Foods', 'https://images.pexels.com/photos/19155999/pexels-photo-19155999.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'),
+('Household & Cleaning', 'https://images.pexels.com/photos/4440525/pexels-photo-4440525.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'),
+('Personal Care', 'https://images.pexels.com/photos/3987142/pexels-photo-3987142.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+UPDATE testr.categories SET language_id = 'en-US';
+
+-- Insert sample data for suggestions
+INSERT INTO testr.pSuggestions (id, name, priority, language_id) VALUES
+(1, 'apple', 1, 'en-US'),
+(2, 'avocado', 1, 'en-US'),
+(3, 'banana', 1, 'en-US'),
+(4, 'bread', 1, 'en-US'),
+(5, 'butter', 1, 'en-US'),
+(6, 'carrots', 1, 'en-US'),
+(7, 'cereal', 1, 'en-US'),
+(8, 'cheese', 1, 'en-US'),
+(9, 'chicken breast', 1, 'en-US'),
+(10, 'coffee', 1, 'en-US'),
+(11, 'eggs', 1, 'en-US'),
+(12, 'flour', 1, 'en-US'),
+(13, 'ground beef', 1, 'en-US'),
+(14, 'lettuce', 1, 'en-US'),
+(15, 'milk', 1, 'en-US'),
+(16, 'olive oil', 1, 'en-US'),
+(17, 'onions', 1, 'en-US'),
+(18, 'orange juice', 1, 'en-US'),
+(19, 'pasta', 1, 'en-US'),
+(20, 'potatoes', 1, 'en-US'),
+(21, 'rice', 1, 'en-US'),
+(22, 'salmon', 1, 'en-US'),
+(23, 'spinach', 1, 'en-US'),
+(24, 'sugar', 1, 'en-US'),
+(25, 'tomatoes', 1, 'en-US'),
+(26, 'water', 1, 'en-US'),
+(27, 'yogurt', 1, 'en-US'),
+(28, 'almond milk', 2, 'en-US'),
+(29, 'bacon', 2, 'en-US'),
+(30, 'bagels', 2, 'en-US'),
+(31, 'beans', 2, 'en-US'),
+(32, 'blueberries', 2, 'en-US'),
+(33, 'broccoli', 2, 'en-US'),
+(34, 'canned tuna', 2, 'en-US'),
+(35, 'cheddar cheese', 2, 'en-US'),
+(36, 'chips', 2, 'en-US'),
+(37, 'chocolate', 2, 'en-US'),
+(38, 'cream cheese', 2, 'en-US'),
+(39, 'cucumbers', 2, 'en-US'),
+(40, 'dish soap', 2, 'en-US'),
+(41, 'frozen pizza', 2, 'en-US'),
+(42, 'garlic', 2, 'en-US'),
+(43, 'granola bars', 2, 'en-US'),
+(44, 'green beans', 2, 'en-US'),
+(45, 'ice cream', 2, 'en-US'),
+(46, 'ketchup', 2, 'en-US'),
+(47, 'laundry detergent', 2, 'en-US'),
+(48, 'lemons', 2, 'en-US'),
+(49, 'mayonnaise', 2, 'en-US'),
+(50, 'mushrooms', 2, 'en-US'),
+(51, 'mustard', 2, 'en-US'),
+(52, 'oatmeal', 2, 'en-US'),
+(53, 'paper towels', 2, 'en-US'),
+(54, 'peanut butter', 2, 'en-US'),
+(55, 'peppers', 2, 'en-US'),
+(56, 'pickles', 2, 'en-US'),
+(57, 'pork chops', 2, 'en-US'),
+(58, 'pretzels', 2, 'en-US'),
+(59, 'shampoo', 2, 'en-US'),
+(60, 'shrimp', 2, 'en-US'),
+(61, 'soda', 2, 'en-US'),
+(62, 'sour cream', 2, 'en-US'),
+(63, 'spaghetti sauce', 2, 'en-US'),
+(64, 'strawberries', 2, 'en-US'),
+(65, 'tea', 2, 'en-US'),
+(66, 'toilet paper', 2, 'en-US'),
+(67, 'toothpaste', 2, 'en-US'),
+(68, 'tortilla chips', 2, 'en-US'),
+(69, 'whole wheat bread', 2, 'en-US'),
+(70, 'organic apples', 3, 'en-US'),
+(71, 'organic spinach', 3, 'en-US'),
+(72, 'organic chicken', 3, 'en-US'),
+(73, 'gluten-free bread', 3, 'en-US'),
+(74, 'gluten-free pasta', 3, 'en-US'),
+(75, 'lactose-free milk', 3, 'en-US'),
+(76, 'low-fat yogurt', 3, 'en-US'),
+(77, 'sugar-free cookies', 3, 'en-US'),
+(78, 'vegan cheese', 3, 'en-US'),
+(79, 'whole grain crackers', 3, 'en-US'),
+(80, 'aspirin', 3, 'en-US'),
+(81, 'band-aids', 3, 'en-US'),
+(82, 'basil', 3, 'en-US'),
+(83, 'bell peppers', 3, 'en-US'),
+(84, 'black beans', 3, 'en-US'),
+(85, 'brown rice', 3, 'en-US'),
+(86, 'canned corn', 3, 'en-US'),
+(87, 'canola oil', 3, 'en-US'),
+(88, 'cayenne pepper', 3, 'en-US'),
+(89, 'celery', 3, 'en-US'),
+(90, 'cherries', 3, 'en-US'),
+(91, 'chickpeas', 3, 'en-US'),
+(92, 'cilantro', 3, 'en-US'),
+(93, 'cinnamon', 3, 'en-US'),
+(94, 'coconut oil', 3, 'en-US'),
+(95, 'cottage cheese', 3, 'en-US'),
+(96, 'crackers', 3, 'en-US'),
+(97, 'dark chocolate', 3, 'en-US'),
+(98, 'deli turkey', 3, 'en-US'),
+(99, 'energy drinks', 3, 'en-US'),
+(100, 'feta cheese', 3, 'en-US');
+
+-- Insert sample data into products table with image paths
+INSERT INTO products (product_id, product_name, description, price, stock, category_id, image_path, created_at, language_id) VALUES
+(1, 'Apple', 'Fresh and crisp red apples, perfect for a healthy snack.', 2.50, 150, 1, 'https://images.pexels.com/photos/102104/pexels-photo-102104.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(2, 'Avocado', 'Creamy and nutritious Hass avocados, great for toast or salads.', 1.75, 80, 1, 'https://images.pexels.com/photos/557659/pexels-photo-557659.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(3, 'Banana', 'A bunch of ripe, sweet bananas, rich in potassium.', 1.20, 200, 1, 'https://images.pexels.com/photos/1093038/pexels-photo-1093038.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(4, 'Bread', 'A loaf of freshly baked white sandwich bread.', 3.00, 60, 4, 'https://images.pexels.com/photos/1775043/pexels-photo-1775043.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(5, 'Butter', 'Salted butter made from fresh cream, perfect for spreading and baking.', 4.50, 50, 2, 'https://images.pexels.com/photos/4109943/pexels-photo-4109943.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(6, 'Carrots', 'A bunch of organic carrots, sweet and crunchy.', 2.20, 100, 1, 'https://images.pexels.com/photos/1306559/pexels-photo-1306559.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(7, 'Cereal', 'A box of classic honey nut toasted oat cereal.', 5.10, 75, 5, 'https://images.pexels.com/photos/1844012/pexels-photo-1844012.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(8, 'Cheese', 'A block of medium cheddar cheese, versatile and flavorful.', 6.00, 45, 2, 'https://images.pexels.com/photos/1435184/pexels-photo-1435184.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(9, 'Chicken Breast', 'Boneless, skinless chicken breasts, lean and high in protein (per lb).', 8.99, 90, 3, 'https://images.pexels.com/photos/6107773/pexels-photo-6107773.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(10, 'Coffee', 'A bag of medium roast ground coffee beans.', 12.50, 65, 7, 'https://images.pexels.com/photos/37397/coffee-beans-market-cup-beans.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(11, 'Eggs', 'One dozen large Grade A white eggs.', 3.75, 120, 2, 'https://images.pexels.com/photos/162712/egg-white-food-protein-162712.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(12, 'Flour', 'All-purpose white flour for all your baking needs.', 4.25, 55, 5, 'https://images.pexels.com/photos/876442/pexels-photo-876442.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(13, 'Ground Beef', 'Lean ground beef, 90/10 ratio (per lb).', 7.50, 70, 3, 'https://images.pexels.com/photos/6543477/pexels-photo-6543477.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(14, 'Lettuce', 'A head of fresh iceberg lettuce, crisp and refreshing.', 1.90, 85, 1, 'https://images.pexels.com/photos/2893636/pexels-photo-2893636.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(15, 'Milk', 'One gallon of 2% reduced-fat dairy milk.', 4.80, 110, 2, 'https://images.pexels.com/photos/248412/pexels-photo-248412.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(16, 'Olive Oil', 'Extra virgin olive oil, cold-pressed for a rich flavor.', 9.99, 40, 5, 'https://images.pexels.com/photos/1482098/pexels-photo-1482098.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(17, 'Onions', 'Yellow onions, a versatile staple for any kitchen (per lb).', 1.10, 130, 1, 'https://images.pexels.com/photos/533352/pexels-photo-533352.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(18, 'Orange Juice', 'A half-gallon of pulp-free orange juice.', 5.20, 60, 7, 'https://images.pexels.com/photos/714497/pexels-photo-714497.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(19, 'Pasta', 'A box of spaghetti pasta, made from durum wheat semolina.', 2.10, 150, 5, 'https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(20, 'Potatoes', 'Russet potatoes, ideal for baking, mashing, or frying (5 lb bag).', 4.00, 95, 1, 'https://images.pexels.com/photos/144248/potatoes-vegetables-erdfrucht-bio-144248.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(21, 'Rice', 'A bag of long-grain white rice.', 3.50, 110, 5, 'https://images.pexels.com/photos/1395964/pexels-photo-1395964.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(22, 'Salmon', 'Fresh Atlantic salmon fillet, rich in omega-3s (per lb).', 14.99, 30, 3, 'https://images.pexels.com/photos/840216/pexels-photo-840216.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(23, 'Spinach', 'A bag of fresh baby spinach, tender and mild.', 3.25, 50, 1, 'https://images.pexels.com/photos/5945738/pexels-photo-5945738.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(24, 'Sugar', 'Granulated white sugar for all your sweetening needs.', 3.80, 80, 5, 'https://images.pexels.com/photos/2793163/pexels-photo-2793163.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(25, 'Tomatoes', 'Tomatoes on the vine, juicy and full of flavor (per lb).', 2.99, 70, 1, 'https://images.pexels.com/photos/533280/pexels-photo-533280.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(26, 'Water', 'A 24-pack of purified bottled water.', 6.50, 100, 7, 'https://images.pexels.com/photos/416528/pexels-photo-416528.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(27, 'Yogurt', 'Greek yogurt, plain and full of protein.', 1.50, 150, 2, 'https://images.pexels.com/photos/831070/pexels-photo-831070.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(28, 'Almond Milk', 'Unsweetened almond milk, a great dairy-free alternative.', 4.10, 40, 2, 'https://images.pexels.com/photos/4040600/pexels-photo-4040600.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(29, 'Bacon', 'A package of classic hickory-smoked bacon.', 7.20, 60, 3, 'https://images.pexels.com/photos/1930760/pexels-photo-1930760.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(30, 'Bagels', 'A pack of 6 plain bagels, perfect for toasting.', 4.30, 55, 4, 'https://images.pexels.com/photos/103565/pexels-photo-103565.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(31, 'Beans', 'A can of black beans, ready to eat.', 1.30, 200, 5, 'https://images.pexels.com/photos/1359325/pexels-photo-1359325.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(32, 'Blueberries', 'A pint of fresh, sweet blueberries.', 4.50, 45, 1, 'https://images.pexels.com/photos/70862/pexels-photo-70862.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(33, 'Broccoli', 'A head of fresh broccoli, packed with vitamins.', 2.50, 65, 1, 'https://images.pexels.com/photos/47347/broccoli-vegetable-food-healthy-47347.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(34, 'Canned Tuna', 'Chunk light tuna packed in water.', 1.80, 140, 5, 'https://images.pexels.com/photos/8782415/pexels-photo-8782415.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(35, 'Cheddar Cheese', 'A block of sharp cheddar cheese, aged for rich flavor.', 6.50, 40, 2, 'https://images.pexels.com/photos/3682240/pexels-photo-3682240.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(36, 'Chips', 'A family-size bag of classic potato chips.', 4.20, 90, 6, 'https://images.pexels.com/photos/2774548/pexels-photo-2774548.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(37, 'Chocolate', 'A bar of milk chocolate.', 2.00, 180, 6, 'https://images.pexels.com/photos/4109744/pexels-photo-4109744.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(38, 'Cream Cheese', 'A tub of plain cream cheese, smooth and spreadable.', 3.60, 50, 2, 'https://images.pexels.com/photos/4040587/pexels-photo-4040587.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(39, 'Cucumbers', 'Fresh cucumbers, crisp and cool.', 0.90, 110, 1, 'https://images.pexels.com/photos/2329440/pexels-photo-2329440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(40, 'Dish Soap', 'A bottle of lemon-scented dish soap.', 3.50, 85, 9, 'https://images.pexels.com/photos/4239014/pexels-photo-4239014.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(41, 'Frozen Pizza', 'A pepperoni pizza with a crispy crust.', 7.99, 50, 8, 'https://images.pexels.com/photos/8254737/pexels-photo-8254737.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(42, 'Garlic', 'A bulb of fresh garlic.', 0.75, 140, 1, 'https://images.pexels.com/photos/161556/cloves-garlic-white-eat-161556.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(43, 'Granola Bars', 'A box of chewy oats and honey granola bars.', 4.80, 70, 6, 'https://images.pexels.com/photos/4113840/pexels-photo-4113840.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(44, 'Green Beans', 'Fresh green beans, perfect for steaming or roasting (per lb).', 2.80, 60, 1, 'https://images.pexels.com/photos/128441/pexels-photo-128441.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(45, 'Ice Cream', 'A tub of classic vanilla bean ice cream.', 5.50, 55, 8, 'https://images.pexels.com/photos/1352270/pexels-photo-1352270.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(46, 'Ketchup', 'A bottle of classic tomato ketchup.', 3.20, 90, 5, 'https://images.pexels.com/photos/5945842/pexels-photo-5945842.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(47, 'Laundry Detergent', 'High-efficiency liquid laundry detergent.', 13.50, 40, 9, 'https://images.pexels.com/photos/6781290/pexels-photo-6781290.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(48, 'Lemons', 'Juicy, tart lemons.', 0.80, 120, 1, 'https://images.pexels.com/photos/1414110/pexels-photo-1414110.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(49, 'Mayonnaise', 'Real mayonnaise made with cage-free eggs.', 4.50, 65, 5, 'https://images.pexels.com/photos/9714691/pexels-photo-9714691.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(50, 'Mushrooms', 'A package of sliced white button mushrooms.', 2.90, 50, 1, 'https://images.pexels.com/photos/1029135/pexels-photo-1029135.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(51, 'Mustard', 'A bottle of classic yellow mustard.', 2.50, 95, 5, 'https://images.pexels.com/photos/6701763/pexels-photo-6701763.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(52, 'Oatmeal', 'A container of old-fashioned rolled oats.', 3.80, 80, 5, 'https://images.pexels.com/photos/210354/pexels-photo-210354.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(53, 'Paper Towels', 'A roll of absorbent paper towels.', 2.00, 150, 9, 'https://images.pexels.com/photos/4239088/pexels-photo-4239088.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(54, 'Peanut Butter', 'A jar of creamy peanut butter.', 4.00, 100, 5, 'https://images.pexels.com/photos/4040582/pexels-photo-4040582.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(55, 'Peppers', 'Fresh green bell peppers (per lb).', 2.20, 75, 1, 'https://images.pexels.com/photos/161559/background-bitter-capsicum-161559.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(56, 'Pickles', 'A jar of crunchy dill pickles.', 3.90, 60, 5, 'https://images.pexels.com/photos/4059469/pexels-photo-4059469.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(57, 'Pork Chops', 'Bone-in center-cut pork chops (per lb).', 6.99, 45, 3, 'https://images.pexels.com/photos/7625145/pexels-photo-7625145.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(58, 'Pretzels', 'A bag of classic mini pretzels.', 3.10, 110, 6, 'https://images.pexels.com/photos/157236/pexels-photo-157236.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(59, 'Shampoo', 'A bottle of moisturizing shampoo for normal hair.', 6.80, 50, 10, 'https://images.pexels.com/photos/3762464/pexels-photo-3762464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(60, 'Shrimp', 'A bag of frozen, peeled, and deveined shrimp.', 15.99, 35, 3, 'https://images.pexels.com/photos/1300975/pexels-photo-1300975.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(61, 'Soda', 'A 12-pack of cola.', 8.50, 80, 7, 'https://images.pexels.com/photos/1579240/pexels-photo-1579240.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(62, 'Sour Cream', 'A container of cultured sour cream.', 2.80, 60, 2, 'https://images.pexels.com/photos/5848529/pexels-photo-5848529.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(63, 'Spaghetti Sauce', 'A jar of traditional marinara spaghetti sauce.', 3.50, 90, 5, 'https://images.pexels.com/photos/5864333/pexels-photo-5864333.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(64, 'Strawberries', 'A container of fresh, ripe strawberries.', 4.80, 55, 1, 'https://images.pexels.com/photos/70746/strawberries-red-fruit-royalty-free-70746.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(65, 'Tea', 'A box of classic black tea bags.', 4.10, 100, 7, 'https://images.pexels.com/photos/39347/tea-tea-leaves-serving-offering-39347.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(66, 'Toilet Paper', 'A 12-pack of 2-ply toilet paper.', 11.00, 70, 9, 'https://images.pexels.com/photos/3771120/pexels-photo-3771120.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(67, 'Toothpaste', 'Fluoride anti-cavity toothpaste.', 3.40, 90, 10, 'https://images.pexels.com/photos/42408/pexels-photo-42408.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(68, 'Tortilla Chips', 'A bag of classic restaurant-style tortilla chips.', 4.00, 120, 6, 'https://images.pexels.com/photos/4059458/pexels-photo-4059458.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(69, 'Whole Wheat Bread', 'A loaf of 100% whole wheat bread.', 3.50, 50, 4, 'https://images.pexels.com/photos/209196/pexels-photo-209196.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(70, 'Organic Apples', 'Certified organic Gala apples, sweet and mild.', 3.50, 80, 1, 'https://images.pexels.com/photos/209439/pexels-photo-209439.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(71, 'Organic Spinach', 'A container of certified organic baby spinach.', 4.00, 40, 1, 'https://images.pexels.com/photos/2325843/pexels-photo-2325843.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(72, 'Organic Chicken', 'Organic, free-range boneless, skinless chicken breasts (per lb).', 10.99, 40, 3, 'https://images.pexels.com/photos/106343/pexels-photo-106343.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(73, 'Gluten-Free Bread', 'A loaf of soft, gluten-free white bread.', 6.50, 30, 4, 'https://images.pexels.com/photos/7968031/pexels-photo-7968031.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(74, 'Gluten-Free Pasta', 'A box of gluten-free pasta made from brown rice.', 3.80, 60, 5, 'https://images.pexels.com/photos/6287523/pexels-photo-6287523.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(75, 'Lactose-Free Milk', 'One half-gallon of lactose-free 2% milk.', 5.50, 35, 2, 'https://images.pexels.com/photos/7992739/pexels-photo-7992739.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(76, 'Low-Fat Yogurt', 'Low-fat strawberry Greek yogurt.', 1.80, 100, 2, 'https://images.pexels.com/photos/5946633/pexels-photo-5946633.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(77, 'Sugar-Free Cookies', 'A package of sugar-free chocolate chip cookies.', 5.20, 40, 6, 'https://images.pexels.com/photos/5118744/pexels-photo-5118744.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(78, 'Vegan Cheese', 'A block of plant-based cheddar style shreds.', 7.00, 25, 2, 'https://images.pexels.com/photos/6941030/pexels-photo-6941030.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(79, 'Whole Grain Crackers', 'A box of crispy whole grain crackers.', 4.10, 80, 6, 'https://images.pexels.com/photos/9064240/pexels-photo-9064240.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(80, 'Aspirin', 'A bottle of low-dose aspirin (100 tablets).', 5.50, 60, 10, 'https://images.pexels.com/photos/4210611/pexels-photo-4210611.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(81, 'Band-Aids', 'A box of assorted adhesive bandages.', 3.80, 90, 10, 'https://images.pexels.com/photos/5728639/pexels-photo-5728639.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(82, 'Basil', 'A bunch of fresh basil.', 2.99, 30, 1, 'https://images.pexels.com/photos/1303530/pexels-photo-1303530.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(83, 'Bell Peppers', 'A mix of red, yellow, and green bell peppers (3 pack).', 4.50, 60, 1, 'https://images.pexels.com/photos/5973/food-kitchen-pepper-cooking.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(84, 'Black Beans', 'A can of organic black beans.', 1.80, 180, 5, 'https://images.pexels.com/photos/631411/pexels-photo-631411.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(85, 'Brown Rice', 'A bag of whole-grain brown rice.', 4.20, 100, 5, 'https://images.pexels.com/photos/4110462/pexels-photo-4110462.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(86, 'Canned Corn', 'A can of sweet whole kernel corn.', 1.40, 160, 5, 'https://images.pexels.com/photos/8782352/pexels-photo-8782352.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(87, 'Canola Oil', 'A bottle of pure canola oil for cooking and frying.', 5.80, 50, 5, 'https://images.pexels.com/photos/8438491/pexels-photo-8438491.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(88, 'Cayenne Pepper', 'A shaker of ground cayenne pepper.', 3.20, 70, 5, 'https://images.pexels.com/photos/9609657/pexels-photo-9609657.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(89, 'Celery', 'A bunch of fresh celery stalks.', 2.10, 60, 1, 'https://images.pexels.com/photos/4051673/pexels-photo-4051673.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(90, 'Cherries', 'A bag of sweet red cherries (per lb).', 5.99, 40, 1, 'https://images.pexels.com/photos/109275/pexels-photo-109275.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(91, 'Chickpeas', 'A can of garbanzo beans (chickpeas).', 1.50, 150, 5, 'https://images.pexels.com/photos/4110255/pexels-photo-4110255.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(92, 'Cilantro', 'A bunch of fresh cilantro.', 1.90, 45, 1, 'https://images.pexels.com/photos/4051659/pexels-photo-4051659.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(93, 'Cinnamon', 'A shaker of ground cinnamon.', 3.50, 80, 5, 'https://images.pexels.com/photos/4198933/pexels-photo-4198933.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(94, 'Coconut Oil', 'A jar of organic, unrefined coconut oil.', 8.50, 35, 5, 'https://images.pexels.com/photos/33789/AYERBE-FOOD-FRUIT-ORGANIC.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(95, 'Cottage Cheese', 'A container of low-fat cottage cheese.', 3.30, 55, 2, 'https://images.pexels.com/photos/806361/pexels-photo-806361.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(96, 'Crackers', 'A box of buttery, flaky crackers.', 3.80, 110, 6, 'https://images.pexels.com/photos/209384/pexels-photo-209384.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(97, 'Dark Chocolate', 'A bar of 70% cacao dark chocolate.', 3.50, 90, 6, 'https://images.pexels.com/photos/8992923/pexels-photo-8992923.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(98, 'Deli Turkey', 'Sliced oven-roasted turkey breast (per lb).', 9.50, 40, 3, 'https://images.pexels.com/photos/6157053/pexels-photo-6157053.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(99, 'Energy Drinks', 'A can of a popular energy drink.', 2.80, 130, 7, 'https://images.pexels.com/photos/1460032/pexels-photo-1460032.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US'),
+(100, 'Feta Cheese', 'A container of crumbled feta cheese.', 5.20, 30, 2, 'https://images.pexels.com/photos/8213605/pexels-photo-8213605.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US');
+
+-- Insert sample data into the stores table
+INSERT INTO testr.stores (store_name, store_location, store_address, store_image, longitude, latitude) VALUES
+('Sobeys Columbia', 'Waterloo', '450 Columbia St W, Waterloo, ON N2T 2W1', 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Sobeys_logo.svg/1280px-Sobeys_logo.svg.png', -80.565123, 43.480012),
+('Zehrs Conestoga', 'Waterloo', '550 King St N, Waterloo, ON N2L 5W6', 'https://upload.wikimedia.org/wikipedia/en/thumb/a/a2/Zehrs_Markets_logo.svg/1280px-Zehrs_Markets_logo.svg.png', -80.536345, 43.502189),
+('Food Basics', 'Kitchener', '1405 Fischer-Hallman Rd, Kitchener, ON N2M 4X8', 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Food_Basics_logo.svg/1280px-Food_Basics_logo.svg.png', -80.528456, 43.414789),
+('FreshCo', 'Waterloo', '425 University Ave E, Waterloo, ON N2K 4C9', 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/FreshCo_logo.svg/1280px-FreshCo_logo.svg.png', -80.518921, 43.490333),
+('Costco Wholesale', 'Waterloo', '935 Erb St W, Waterloo, ON N2J 3Z4', 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Costco_Wholesale_logo.svg/1280px-Costco_Wholesale_logo.svg.png', -80.587345, 43.447891),
+('Walmart Supercentre', 'Waterloo', '100 The Boardwalk, Waterloo, ON N2J 3Z4', 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Walmart_Spark.svg/1280px-Walmart_Spark.svg.png', -80.575123, 43.446789),
+('Vincenzo''s', 'Waterloo', '150 Caroline St S, Waterloo, ON N2L 0A5', 'https://images.squarespace-cdn.com/content/v1/592dd1b437c581329b71e813/1496181710522-8G6L5S61QJ5D9J2R8KRI/Vincenzos-logo.png', -80.525432, 43.460987),
+('T&T Supermarket', 'Waterloo', '50 Westmount Rd N, Waterloo, ON N2L 2R5', 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/T_%26_T_Supermarket_logo.svg/1280px-T_%26_T_Supermarket_logo.svg.png', -80.548111, 43.469222);
+
+-- Data for Sobeys Columbia (store_id = 1) - Standard/Slightly Higher Prices
+INSERT INTO testr.product_store (product_store_id, product_id, store_id, price, stock) VALUES
+(1, 1, 1, 2.69, 120),
+(2, 2, 1, 1.89, 70),
+(3, 3, 1, 1.29, 180),
+(4, 4, 1, 3.29, 50),
+(5, 5, 1, 4.79, 45),
+(6, 9, 1, 9.49, 80),
+(7, 11, 1, 3.99, 100),
+(8, 15, 1, 5.09, 90),
+(9, 22, 1, 15.99, 25),
+(10, 27, 1, 1.69, 130),
+(11, 36, 1, 4.49, 80),
+(12, 47, 1, 14.29, 35),
+(13, 66, 1, 11.99, 60),
+(14, 70, 1, 3.89, 70),
+(15, 98, 1, 10.29, 35);
+
+-- Data for Zehrs Conestoga (store_id = 2) - Similar to Sobeys
+INSERT INTO testr.product_store (product_store_id, product_id, store_id, price, stock) VALUES
+(16, 1, 2, 2.65, 130),
+(17, 2, 2, 1.95, 65),
+(18, 4, 2, 3.39, 55),
+(19, 8, 2, 6.49, 40),
+(20, 9, 2, 9.59, 75),
+(21, 11, 2, 3.95, 110),
+(22, 15, 2, 5.19, 85),
+(23, 19, 2, 2.29, 140),
+(24, 25, 2, 3.19, 60),
+(25, 45, 2, 5.99, 50),
+(26, 59, 2, 7.19, 45),
+(27, 61, 2, 8.99, 70),
+(28, 69, 2, 3.79, 45),
+(29, 72, 2, 11.49, 38),
+(30, 80, 2, 5.99, 55);
+
+-- Data for Food Basics (store_id = 3) - Discount Prices
+INSERT INTO testr.product_store (product_store_id, product_id, store_id, price, stock) VALUES
+(31, 1, 3, 2.29, 200),
+(32, 3, 3, 0.99, 300),
+(33, 4, 3, 2.79, 80),
+(34, 7, 3, 4.89, 90),
+(35, 11, 3, 3.29, 150),
+(36, 13, 3, 7.19, 80),
+(37, 15, 3, 4.49, 130),
+(38, 19, 3, 1.89, 200),
+(39, 26, 3, 5.99, 120),
+(40, 31, 3, 1.19, 250),
+(41, 36, 3, 3.89, 110),
+(42, 40, 3, 3.19, 90),
+(43, 53, 3, 1.79, 180),
+(44, 66, 3, 9.99, 90),
+(45, 86, 3, 1.29, 180);
+
+-- Data for FreshCo (store_id = 4) - Discount Prices
+INSERT INTO testr.product_store (product_store_id, product_id, store_id, price, stock) VALUES
+(46, 1, 4, 2.35, 190),
+(47, 3, 4, 1.05, 280),
+(48, 4, 4, 2.85, 75),
+(49, 9, 4, 8.49, 90),
+(50, 11, 4, 3.35, 140),
+(51, 15, 4, 4.59, 120),
+(52, 20, 4, 3.79, 110),
+(53, 21, 4, 3.29, 130),
+(54, 34, 4, 1.69, 150),
+(55, 36, 4, 3.99, 100),
+(56, 47, 4, 12.99, 50),
+(57, 54, 4, 3.79, 110),
+(58, 63, 4, 3.29, 100),
+(59, 68, 4, 3.79, 130),
+(60, 96, 4, 3.59, 120);
+
+-- Data for Costco Wholesale (store_id = 5) - Bulk/Lower Unit Prices, Different Product Selection
+INSERT INTO testr.product_store (product_store_id, product_id, store_id, price, stock) VALUES
+(61, 1, 5, 1.99, 500), -- Price represents unit price in bulk
+(62, 9, 5, 7.99, 200),
+(63, 11, 5, 2.99, 400),
+(64, 15, 5, 4.29, 300),
+(65, 22, 5, 13.99, 100),
+(66, 26, 5, 4.99, 500),
+(67, 29, 5, 6.89, 150),
+(68, 47, 5, 11.50, 100),
+(69, 53, 5, 1.50, 400),
+(70, 66, 5, 8.99, 250),
+(71, 69, 5, 3.19, 150),
+(72, 72, 5, 9.99, 90),
+(73, 81, 5, 3.19, 200),
+(74, 98, 5, 8.99, 80);
+
+-- Data for Walmart Supercentre (store_id = 6) - Competitive/Low Prices
+INSERT INTO testr.product_store (product_store_id, product_id, store_id, price, stock) VALUES
+(75, 1, 6, 2.45, 300),
+(76, 4, 6, 2.95, 100),
+(77, 9, 6, 8.79, 110),
+(78, 11, 6, 3.45, 200),
+(79, 15, 6, 4.69, 180),
+(80, 26, 6, 6.19, 250),
+(81, 36, 6, 4.09, 150),
+(82, 40, 6, 3.39, 100),
+(83, 47, 6, 13.29, 60),
+(84, 53, 6, 1.89, 300),
+(85, 66, 6, 10.49, 120),
+(86, 67, 6, 3.19, 110),
+(87, 80, 6, 5.29, 80),
+(88, 96, 6, 3.69, 140);
+
+-- Data for Vincenzo's (store_id = 7) - Specialty/Gourmet, Higher Prices
+INSERT INTO testr.product_store (product_store_id, product_id, store_id, price, stock) VALUES
+(89, 2, 7, 2.29, 40), -- High quality produce
+(90, 8, 7, 8.99, 30), -- Imported Cheese
+(91, 16, 7, 12.99, 25), -- High quality Olive Oil
+(92, 19, 7, 3.99, 50), -- Imported Pasta
+(93, 22, 7, 18.99, 15), -- Premium Salmon
+(94, 25, 7, 4.99, 35),
+(95, 35, 7, 8.49, 25),
+(96, 50, 7, 3.99, 30),
+(97, 63, 7, 5.99, 40),
+(98, 82, 7, 3.49, 25),
+(99, 97, 7, 4.99, 40),
+(100, 98, 7, 12.99, 20), -- Premium Deli Turkey
+(101, 100, 7, 7.99, 20);
+
+-- Data for T&T Supermarket (store_id = 8) - Specialty Asian Groceries
+INSERT INTO testr.product_store (product_store_id, product_id, store_id, price, stock) VALUES
+(102, 3, 8, 1.19, 150),
+(103, 17, 8, 0.99, 200),
+(104, 21, 8, 2.99, 180), -- Lower price on rice
+(105, 23, 8, 3.09, 60),
+(106, 33, 8, 2.39, 70),
+(107, 39, 8, 0.85, 130),
+(108, 42, 8, 0.69, 180),
+(109, 50, 8, 2.79, 60),
+(110, 60, 8, 14.99, 50), -- Good price on shrimp
+(111, 85, 8, 3.99, 120),
+(112, 91, 8, 1.45, 160),
+(113, 92, 8, 1.79, 60),
+(114, 94, 8, 7.99, 40);
+
+-- Insert sample data into customers table
+INSERT INTO customers (first_name, last_name, email, phone_number, address, premium_rank) VALUES
+('John', 'Doe', 'john.doe@example.com', '1234567890', '123 Main St', 0),
+('Jane', 'Smith', 'jane.smith@example.com', '0987654321', '456 Elm St', 1);
+
+-- Insert sample data into grocery_stores table
+INSERT INTO grocery_stores (store_name, address, store_rank) VALUES
+('SuperMart', '789 Oak St', 0),
+('FreshMart', '321 Pine St', 1);
+
+-- Insert sample data into employees table
+INSERT INTO employees (name, f_name, l_name, email, phone) VALUES
+('John', 'John', 'Doe', 'john.doe@company.com', '1234567890'),
+('Jane', 'Jane', 'Smith', 'jane.smith@company.com', '0987654321');
+
+-- Insert sample data into db_users table
+INSERT INTO db_users (username, password) VALUES
+('admin', 'admin123'),
+('user', 'user123');
+
+-- Insert sample data into orders table
+INSERT INTO orders (customer_id, order_status, order_day, payment_method) VALUES
+(1, 'Pending', '2023-10-01', 'Credit Card'),
+(2, 'Completed', '2023-10-02', 'PayPal');
