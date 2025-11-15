@@ -1,11 +1,12 @@
 -- Create the database if it does not exist
-CREATE DATABASE IF NOT EXISTS testr;
-USE testr;
+CREATE DATABASE IF NOT EXISTS cartbutler;
+USE cartbutler;
 
 CREATE TABLE categories (
     category_id INT AUTO_INCREMENT PRIMARY KEY,
     category_name VARCHAR(255) UNIQUE NOT NULL,
-    image_path VARCHAR(255)
+    image_path VARCHAR(255),
+    language_id VARCHAR(10) NOT NULL DEFAULT 'en-US'
 );
 
 CREATE TABLE products (
@@ -17,6 +18,7 @@ CREATE TABLE products (
     category_id INT NOT NULL,
     image_path VARCHAR(255) NOT NULL,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    language_id VARCHAR(10) NOT NULL DEFAULT 'en-US',
     category_name VARCHAR(255),
     FOREIGN KEY (category_id) REFERENCES categories(category_id)
 );
@@ -71,13 +73,18 @@ CREATE INDEX orders_customer_id_fkey ON orders(customer_id);
 CREATE TABLE pSuggestions (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
-    priority INT NOT NULL
+    priority INT NOT NULL,
+    language_id VARCHAR(10) NOT NULL DEFAULT 'en-US'
 );
 
 CREATE TABLE stores (
     store_id INT AUTO_INCREMENT PRIMARY KEY,
     store_name VARCHAR(255) NOT NULL,
-    store_location VARCHAR(255) NOT NULL
+    store_location VARCHAR(255) NOT NULL,
+    store_address TEXT NOT NULL,
+    store_image VARCHAR(255) NOT NULL,
+    longitude DECIMAL(10, 6) NOT NULL,
+    latitude DECIMAL(10, 6) NOT NULL
 );
 
 CREATE TABLE product_store (
@@ -119,16 +126,12 @@ CREATE TABLE cartItems (
 -- Create the CartStoreComplete view
 CREATE VIEW cart_store_complete AS
 SELECT 
-    c.id as cart_id,
+    c.cart_id AS cart_id,
     c.user_id,
     s.store_id,
     s.store_name,
     s.store_location,
-    s.store_address,
-    s.latitude,
-    s.longitude,
-    s.store_image,
-    SUM(ps.price * ci.quantity) as total,
+    SUM(ps.price * ci.quantity) AS total,
     JSON_ARRAYAGG(
         JSON_OBJECT(
             'product_id', p.product_id,
@@ -136,22 +139,19 @@ SELECT
             'price', ps.price,
             'quantity', ci.quantity
         )
-    ) as products,
-    COUNT(DISTINCT p.product_id) as product_count,
-    (SELECT COUNT(DISTINCT product_id) FROM cart_items WHERE cart_id = c.id) as total_cart_products,
-    -- Use boolean type
-    COUNT(DISTINCT p.product_id) = (SELECT COUNT(DISTINCT product_id) FROM cart_items WHERE cart_id = c.id) as is_complete
+    ) AS products,
+    COUNT(DISTINCT p.product_id) AS product_count,
+    (SELECT COUNT(DISTINCT product_id) FROM cartItems WHERE cart_id = c.cart_id) AS total_cart_products,
+    COUNT(DISTINCT p.product_id) = 
+      (SELECT COUNT(DISTINCT product_id) FROM cartItems WHERE cart_id = c.cart_id) AS is_complete
 FROM cart c
-INNER JOIN cart_items ci ON c.id = ci.cart_id
+INNER JOIN cartItems ci ON c.cart_id = ci.cart_id
 INNER JOIN products p ON ci.product_id = p.product_id
 INNER JOIN product_store ps ON p.product_id = ps.product_id
 INNER JOIN stores s ON ps.store_id = s.store_id
-GROUP BY c.id, c.user_id, s.store_id, s.store_name, s.store_location, 
-         s.store_address, s.latitude, s.longitude, s.store_image
+GROUP BY 
+    c.cart_id, c.user_id, s.store_id, s.store_name, s.store_location
 ORDER BY 
-    -- First sort by completeness (complete stores first)
     is_complete DESC,
-    -- Then sort by product count (more products first)
     product_count DESC,
-    -- Finally sort by total price (lower price first)
     total ASC;

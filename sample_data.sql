@@ -1,5 +1,9 @@
+-- Create the database if it does not exist
+CREATE DATABASE IF NOT EXISTS cartbutler;
+USE cartbutler;
+
 -- Populate the categories table
-INSERT INTO testr.categories (category_name, image_path) VALUES
+INSERT INTO categories (category_name, image_path) VALUES
 ('Fresh Produce', 'https://images.pexels.com/photos/2255935/pexels-photo-2255935.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'),
 ('Dairy & Eggs', 'https://images.pexels.com/photos/248412/pexels-photo-248412.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'),
 ('Meat & Seafood', 'https://images.pexels.com/photos/65175/pexels-photo-65175.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'),
@@ -10,10 +14,10 @@ INSERT INTO testr.categories (category_name, image_path) VALUES
 ('Frozen Foods', 'https://images.pexels.com/photos/19155999/pexels-photo-19155999.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'),
 ('Household & Cleaning', 'https://images.pexels.com/photos/4440525/pexels-photo-4440525.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'),
 ('Personal Care', 'https://images.pexels.com/photos/3987142/pexels-photo-3987142.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
-UPDATE testr.categories SET language_id = 'en-US';
+UPDATE categories SET language_id = 'en-US';
 
 -- Insert sample data for suggestions
-INSERT INTO testr.pSuggestions (id, name, priority, language_id) VALUES
+INSERT INTO pSuggestions (id, name, priority, language_id) VALUES
 (1, 'apple', 1, 'en-US'),
 (2, 'avocado', 1, 'en-US'),
 (3, 'banana', 1, 'en-US'),
@@ -219,7 +223,7 @@ INSERT INTO products (product_id, product_name, description, price, stock, categ
 (100, 'Feta Cheese', 'A container of crumbled feta cheese.', 5.20, 30, 2, 'https://images.pexels.com/photos/8213605/pexels-photo-8213605.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', NOW(), 'en-US');
 
 -- Insert sample data into the stores table
-INSERT INTO testr.stores (store_name, store_location, store_address, store_image, longitude, latitude) VALUES
+INSERT INTO stores (store_name, store_location, store_address, store_image, longitude, latitude) VALUES
 ('Sobeys Columbia', 'Waterloo', '450 Columbia St W, Waterloo, ON N2T 2W1', 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Sobeys_logo.svg/1280px-Sobeys_logo.svg.png', -80.565123, 43.480012),
 ('Zehrs Conestoga', 'Waterloo', '550 King St N, Waterloo, ON N2L 5W6', 'https://upload.wikimedia.org/wikipedia/en/thumb/a/a2/Zehrs_Markets_logo.svg/1280px-Zehrs_Markets_logo.svg.png', -80.536345, 43.502189),
 ('Food Basics', 'Kitchener', '1405 Fischer-Hallman Rd, Kitchener, ON N2M 4X8', 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Food_Basics_logo.svg/1280px-Food_Basics_logo.svg.png', -80.528456, 43.414789),
@@ -230,7 +234,7 @@ INSERT INTO testr.stores (store_name, store_location, store_address, store_image
 ('T&T Supermarket', 'Waterloo', '50 Westmount Rd N, Waterloo, ON N2L 2R5', 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/T_%26_T_Supermarket_logo.svg/1280px-T_%26_T_Supermarket_logo.svg.png', -80.548111, 43.469222);
 
 -- Data for Sobeys Columbia (store_id = 1) - Standard/Slightly Higher Prices
-INSERT INTO testr.product_store (product_store_id, product_id, store_id, price, stock) VALUES
+INSERT INTO product_store (product_store_id, product_id, store_id, price, stock) VALUES
 (1, 1, 1, 2.69, 120),
 (2, 2, 1, 1.89, 70),
 (3, 3, 1, 1.29, 180),
@@ -248,7 +252,7 @@ INSERT INTO testr.product_store (product_store_id, product_id, store_id, price, 
 (15, 98, 1, 10.29, 35);
 
 -- Data for Zehrs Conestoga (store_id = 2) - Similar to Sobeys
-INSERT INTO testr.product_store (product_store_id, product_id, store_id, price, stock) VALUES
+INSERT INTO product_store (product_store_id, product_id, store_id, price, stock) VALUES
 (16, 1, 2, 2.65, 130),
 (17, 2, 2, 1.95, 65),
 (18, 4, 2, 3.39, 55),
@@ -266,7 +270,7 @@ INSERT INTO testr.product_store (product_store_id, product_id, store_id, price, 
 (30, 80, 2, 5.99, 55);
 
 -- Data for Food Basics (store_id = 3) - Discount Prices
-INSERT INTO testr.product_store (product_store_id, product_id, store_id, price, stock) VALUES
+INSERT INTO product_store (product_store_id, product_id, store_id, price, stock) VALUES
 (31, 1, 3, 2.29, 200),
 (32, 3, 3, 0.99, 300),
 (33, 4, 3, 2.79, 80),
@@ -284,7 +288,7 @@ INSERT INTO testr.product_store (product_store_id, product_id, store_id, price, 
 (45, 86, 3, 1.29, 180);
 
 -- Data for FreshCo (store_id = 4) - Discount Prices
-INSERT INTO testr.product_store (product_store_id, product_id, store_id, price, stock) VALUES
+INSERT INTO product_store (product_store_id, product_id, store_id, price, stock) VALUES
 (46, 1, 4, 2.35, 190),
 (47, 3, 4, 1.05, 280),
 (48, 4, 4, 2.85, 75),
@@ -302,7 +306,7 @@ INSERT INTO testr.product_store (product_store_id, product_id, store_id, price, 
 (60, 96, 4, 3.59, 120);
 
 -- Data for Costco Wholesale (store_id = 5) - Bulk/Lower Unit Prices, Different Product Selection
-INSERT INTO testr.product_store (product_store_id, product_id, store_id, price, stock) VALUES
+INSERT INTO product_store (product_store_id, product_id, store_id, price, stock) VALUES
 (61, 1, 5, 1.99, 500), -- Price represents unit price in bulk
 (62, 9, 5, 7.99, 200),
 (63, 11, 5, 2.99, 400),
@@ -319,7 +323,7 @@ INSERT INTO testr.product_store (product_store_id, product_id, store_id, price, 
 (74, 98, 5, 8.99, 80);
 
 -- Data for Walmart Supercentre (store_id = 6) - Competitive/Low Prices
-INSERT INTO testr.product_store (product_store_id, product_id, store_id, price, stock) VALUES
+INSERT INTO product_store (product_store_id, product_id, store_id, price, stock) VALUES
 (75, 1, 6, 2.45, 300),
 (76, 4, 6, 2.95, 100),
 (77, 9, 6, 8.79, 110),
@@ -336,7 +340,7 @@ INSERT INTO testr.product_store (product_store_id, product_id, store_id, price, 
 (88, 96, 6, 3.69, 140);
 
 -- Data for Vincenzo's (store_id = 7) - Specialty/Gourmet, Higher Prices
-INSERT INTO testr.product_store (product_store_id, product_id, store_id, price, stock) VALUES
+INSERT INTO product_store (product_store_id, product_id, store_id, price, stock) VALUES
 (89, 2, 7, 2.29, 40), -- High quality produce
 (90, 8, 7, 8.99, 30), -- Imported Cheese
 (91, 16, 7, 12.99, 25), -- High quality Olive Oil
@@ -352,7 +356,7 @@ INSERT INTO testr.product_store (product_store_id, product_id, store_id, price, 
 (101, 100, 7, 7.99, 20);
 
 -- Data for T&T Supermarket (store_id = 8) - Specialty Asian Groceries
-INSERT INTO testr.product_store (product_store_id, product_id, store_id, price, stock) VALUES
+INSERT INTO product_store (product_store_id, product_id, store_id, price, stock) VALUES
 (102, 3, 8, 1.19, 150),
 (103, 17, 8, 0.99, 200),
 (104, 21, 8, 2.99, 180), -- Lower price on rice
